@@ -7,5 +7,6 @@ My solutions to the [Advent of Code](https://adventofcode.com) 2024 Edition. Wri
 | 1 | ✅ | ✅ |
 | 2 | ✅ | 🫠 |
 | 3 | ✅ | ✅ |
+| 4 | ✅ | ✅ |
 
 This is my first proper attempt at AoC, so fingers crossed.
