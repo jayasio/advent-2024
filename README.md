@@ -1,6 +1,11 @@
 # Advent of Code 2024
 
-My solutions to the [Advent of Code](https://adventofcode.com) 2024 Edition. Written in TypeScript and executed with Deno.
+My solutions to the [Advent of Code](https://adventofcode.com) 2024 Edition. This is my first proper attempt at AoC, so fingers crossed.
+
+Written in TypeScript and executed with Deno. To run it:
+1. `cd` into the directory of the day
+2. Create a file called `input.txt` with the input data, or `test-input.txt` for the test data from the challenge
+3. Run `deno --allow-read main.ts`
 
 | Day | Part A | Part B |
 | --- | ------ | ------ |
@@ -8,5 +13,4 @@ My solutions to the [Advent of Code](https://adventofcode.com) 2024 Edition. Wri
 | 2 | ✅ | 🫠 |
 | 3 | ✅ | ✅ |
 | 4 | ✅ | ✅ |
-
-This is my first proper attempt at AoC, so fingers crossed.
+| 5 | ✅ | ✅ |
