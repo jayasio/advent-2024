@@ -16,8 +16,8 @@ function parseLine(line: string): Line {
   } as Line;
 }
 
-// Generate binary numbers from 0 to base^(length - 1) and map 1 and 0 to addition and subtraction, 2 to concatenation
-// Felt like an easy way to generate all possible operations
+// Generate binary numbers from 0 to base^(length - 1) and map 1 and 0 to multiplication and addition, 2 to concatenation in operate() function
+// Felt like a nice way to generate all possible operations
 function generateOperations(length: number, base: number = 2): string[][] {
   return Array(Math.pow(base, length - 1))
     .fill("0")
