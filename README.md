@@ -7,6 +7,8 @@ Written in TypeScript and executed with Deno. To run it:
 2. Create a file called `input.txt` with the input data, or `test-input.txt` for the test data from the challenge
 3. Run `deno --allow-read main.ts`
 
+## Tracker
+
 | Day | Part A | Part B |
 | --- | ------ | ------ |
 | 1 | ⭐ | ⭐ |
@@ -15,3 +17,4 @@ Written in TypeScript and executed with Deno. To run it:
 | 4 | ⭐ | ⭐ |
 | 5 | ⭐ | ⭐ |
 | 6 | ⭐ |  |
+| 7 | ⭐ | ⭐ |
