@@ -15,7 +15,7 @@ Written in TypeScript and executed with Deno. To run it:
 | Day | Part A | Part B |
 | --- | ------ | ------ |
 | 1   | ⭐     | ⭐     |
-| 2   | ⭐     |        |
+| 2   | ⭐     | ⭐     |
 | 3   | ⭐     | ⭐     |
 | 4   | ⭐     | ⭐     |
 | 5   | ⭐     | ⭐     |
