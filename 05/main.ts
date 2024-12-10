@@ -6,8 +6,12 @@ const [rules, updates] = new TextDecoder()
   .split("\n\n")
   .map((input) => input.trim());
 
-const rulePairs = rules.split("\n").map((rule) => rule.split("|").map((n) => parseInt(n)));
-const updateArrays = updates.split("\n").map((rule) => rule.split(",").map((n) => parseInt(n)));
+const rulePairs = rules.split("\n").map((rule) =>
+  rule.split("|").map((n) => parseInt(n))
+);
+const updateArrays = updates.split("\n").map((rule) =>
+  rule.split(",").map((n) => parseInt(n))
+);
 
 // Get unique page numbers from rulePairs
 
@@ -18,7 +22,9 @@ console.log(uniqueNums);
 
 const relationMatrix: ("T" | "F" | "_")[][] = [];
 
-uniqueNums.forEach((i) => relationMatrix.push(new Array(uniqueNums.length).fill("_")));
+uniqueNums.forEach((_) =>
+  relationMatrix.push(new Array(uniqueNums.length).fill("_"))
+);
 
 rulePairs.forEach(([small, large]) => {
   const x = uniqueNums.indexOf(small);
@@ -28,7 +34,11 @@ rulePairs.forEach(([small, large]) => {
 });
 
 console.log("   " + uniqueNums.join(" "));
-console.log(relationMatrix.map((row, i) => uniqueNums[i] + "  " + row.join("  ")).join("\n"));
+console.log(
+  relationMatrix.map((row, i) => uniqueNums[i] + "  " + row.join("  ")).join(
+    "\n",
+  ),
+);
 
 // *** See below for an interesting alternate solution I tried, but it didn't work out
 
@@ -41,7 +51,9 @@ function checkObeysRule(a: number, b: number) {
 // Part A
 
 const sumMidPages = updateArrays
-  .filter((update) => update.every((n, i) => (i === 0 ? true : checkObeysRule(update[i - 1], n))))
+  .filter((update) =>
+    update.every((n, i) => (i === 0 ? true : checkObeysRule(update[i - 1], n)))
+  )
   .map((update) => update[Math.floor(update.length / 2)])
   .reduce((a, b) => a + b, 0);
 
@@ -50,7 +62,9 @@ console.log("Part A: ", sumMidPages);
 // Part B
 
 const sumMidPagesOnlyPrevDiscardedOnes = updateArrays
-  .filter((update) => !update.every((n, i) => (i === 0 ? true : checkObeysRule(update[i - 1], n))))
+  .filter((update) =>
+    !update.every((n, i) => (i === 0 ? true : checkObeysRule(update[i - 1], n)))
+  )
   .map((update) => update.toSorted((a, b) => (checkObeysRule(a, b) ? -1 : 1)))
   .map((update) => update[Math.floor(update.length / 2)])
   .reduce((a, b) => a + b, 0);

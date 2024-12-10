@@ -2,7 +2,9 @@ const content = await Deno.readFile("input.txt");
 const input = new TextDecoder().decode(content).trim();
 const lines = input.split("\n");
 
-const reports: number[][] = lines.map((line) => line.split(" ").map((n) => parseInt(n)));
+const reports: number[][] = lines.map((line) =>
+  line.split(" ").map((n) => parseInt(n))
+);
 
 // TEST data
 
@@ -28,7 +30,9 @@ const reports: number[][] = lines.map((line) => line.split(" ").map((n) => parse
 // console.log(reports.map((report) => isOneDirectional(report)));
 
 const reportsDiffs: number[][] = reports.map((report) =>
-  report.map((n, i) => (i === 0 ? null : n - report[i - 1])).filter((n) => n !== null),
+  report.map((n, i) => (i === 0 ? null : n - report[i - 1])).filter((n) =>
+    n !== null
+  )
 );
 
 // PART A: Safe reports
@@ -36,7 +40,9 @@ const reportsDiffs: number[][] = reports.map((report) =>
 const safeReports = reportsDiffs.filter((reportDiff) => {
   const isIncreasing = reportDiff.every((n) => n > 0);
   const isDecreasing = reportDiff.every((n) => n < 0);
-  const withinSafeRange = reportDiff.every((n) => Math.abs(n) >= 1 && Math.abs(n) <= 3);
+  const withinSafeRange = reportDiff.every((n) =>
+    Math.abs(n) >= 1 && Math.abs(n) <= 3
+  );
   return withinSafeRange && (isIncreasing || isDecreasing);
 });
 console.log("Part A: ", safeReports.length);
@@ -56,8 +62,11 @@ console.log("Part A: ", safeReports.length);
 function isSafe(report: number[], toleratedOnce = false) {
   // if (report[1] - report[0] === 0) return false;
 
-  const ascending =
-    [report[1] - report[0] > 0, report[2] - report[1] > 0, report[3] - report[2] > 0].filter((val) => val).length >= 2;
+  const ascending = [
+    report[1] - report[0] > 0,
+    report[2] - report[1] > 0,
+    report[3] - report[2] > 0,
+  ].filter((val) => val).length >= 2;
 
   for (let i = 1; i < report.length; i++) {
     const diff = report[i] - report[i - 1];
@@ -82,5 +91,7 @@ function isSafe(report: number[], toleratedOnce = false) {
   return true;
 }
 
-const testReports = reports.map((report) => isSafe(report)).filter((val) => val);
+const testReports = reports.map((report) => isSafe(report)).filter((val) =>
+  val
+);
 console.log("Part B: ", testReports.length);

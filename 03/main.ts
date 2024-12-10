@@ -45,7 +45,9 @@ function segregator(instructions: string[]) {
   return keepPile;
 }
 
-const relevantInstructions = Array.from(instructions.matchAll(/(?:mul\((\d+),(\d+)\)|(?:do|don't)\(\))/g)).map(
+const relevantInstructions = Array.from(
+  instructions.matchAll(/(?:mul\((\d+),(\d+)\)|(?:do|don't)\(\))/g),
+).map(
   (match) => match[0],
 );
 

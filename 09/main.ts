@@ -4,16 +4,21 @@ const line = contents.trim();
 
 const chunkyDisk: string[][] = line
   .split("")
-  .map((x, i) => Array(parseInt(x)).fill(i % 2 === 0 ? Math.floor(i / 2) : "."));
+  .map((x, i) =>
+    Array(parseInt(x)).fill(i % 2 === 0 ? Math.floor(i / 2) : ".")
+  );
 
 function getChecksum(disk: string[]): number {
-  return disk.reduce((a, b, i) => a + (isNaN(parseInt(b)) ? 0 : parseInt(b)) * i, 0);
+  return disk.reduce(
+    (a, b, i) => a + (isNaN(parseInt(b)) ? 0 : parseInt(b)) * i,
+    0,
+  );
 }
 
 // Part A
 
 function defragmentA(disk: string[]): string[] {
-  let defragmentingDisk: string[] = [...disk];
+  const defragmentingDisk: string[] = [...disk];
 
   let emptyIndex = defragmentingDisk.indexOf(".");
   let lastIndex = defragmentingDisk.length - 1;
@@ -50,7 +55,9 @@ function defragmentB(disk: string[][]): string[] {
     }
 
     const emptyIndex = defragmentingDisk.findIndex(
-      (x, i) => i < cursor && x.includes(".") && x.length >= defragmentingDisk[cursor].length,
+      (x, i) =>
+        i < cursor && x.includes(".") &&
+        x.length >= defragmentingDisk[cursor].length,
     );
 
     if (emptyIndex === -1) {
@@ -58,10 +65,13 @@ function defragmentB(disk: string[][]): string[] {
       continue;
     }
 
-    const diff = defragmentingDisk[emptyIndex].length - defragmentingDisk[cursor].length;
+    const diff = defragmentingDisk[emptyIndex].length -
+      defragmentingDisk[cursor].length;
 
     defragmentingDisk[emptyIndex] = [...defragmentingDisk[cursor]];
-    defragmentingDisk[cursor] = Array(defragmentingDisk[cursor].length).fill(".");
+    defragmentingDisk[cursor] = Array(defragmentingDisk[cursor].length).fill(
+      ".",
+    );
 
     if (diff !== 0) {
       defragmentingDisk = [

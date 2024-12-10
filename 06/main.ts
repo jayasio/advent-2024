@@ -12,7 +12,10 @@ function getValueAtPos([x, y]: [number, number]) {
 
 const directions = ["Up", "Right", "Down", "Left"];
 
-function getNextPos(directionIndex: number, [x, y]: [number, number]): [number, number] {
+function getNextPos(
+  directionIndex: number,
+  [x, y]: [number, number],
+): [number, number] {
   switch (directions[directionIndex]) {
     case "Up":
       return [x, y - 1];
@@ -59,5 +62,8 @@ while (guardPos && checkWithinBounds(guardPos)) {
 console.log(grid.map((line) => line.join("")).join("\n"));
 
 // TODO: check reason for why count is 1 more than expected in test case alone
-const count = grid.map((line) => line.filter((x) => x === "X").length).reduce((a, b) => a + b, 0);
+const count = grid.map((line) => line.filter((x) => x === "X").length).reduce(
+  (a, b) => a + b,
+  0,
+);
 console.log(count);

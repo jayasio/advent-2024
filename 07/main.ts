@@ -25,7 +25,7 @@ function generateOperations(length: number, base: number = 2): string[][] {
       i
         .toString(base)
         .padStart(length - 1, "0")
-        .split(""),
+        .split("")
     );
 }
 
@@ -54,12 +54,18 @@ const linesParsed: Line[] = lines.map(parseLine);
 
 // Part A
 
-const sumA = linesParsed.filter((line) => checkAllOperations(line, 2)).reduce((acc, cur) => acc + cur.value, 0);
+const sumA = linesParsed.filter((line) => checkAllOperations(line, 2)).reduce(
+  (acc, cur) => acc + cur.value,
+  0,
+);
 console.log("Part A: ", sumA);
 
 // Part B
 
-const sumB = linesParsed.filter((line) => checkAllOperations(line, 3)).reduce((acc, cur) => acc + cur.value, 0);
+const sumB = linesParsed.filter((line) => checkAllOperations(line, 3)).reduce(
+  (acc, cur) => acc + cur.value,
+  0,
+);
 console.log("Part B: ", sumB);
 
 // wrong, since I first did all concats then other operations; but, it should be LTR as per puzzle, makes it simpler I guess

@@ -11,10 +11,13 @@ const yMax = antennaGrid.length - 1;
 const xMax = antennaGrid[0].length - 1;
 
 function checkWithinBounds(position: Position) {
-  return position.x >= 0 && position.x <= xMax && position.y >= 0 && position.y <= yMax;
+  return position.x >= 0 && position.x <= xMax && position.y >= 0 &&
+    position.y <= yMax;
 }
 
-const uniqueSignals = [...new Set<string>(antennaGrid.flat())].filter((a) => a !== ".");
+const uniqueSignals = [...new Set<string>(antennaGrid.flat())].filter((a) =>
+  a !== "."
+);
 const uniqueSignalsData = uniqueSignals.map((signal) => {
   const positions: Position[] = [];
 
@@ -95,4 +98,7 @@ uniqueSignalsData.forEach(({ positions }) => {
   }
 });
 
-console.log("Part B: ", resonantAntinodeGrid.flat().filter((a) => a === "#").length);
+console.log(
+  "Part B: ",
+  resonantAntinodeGrid.flat().filter((a) => a === "#").length,
+);

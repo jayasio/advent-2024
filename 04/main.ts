@@ -19,7 +19,12 @@ const directions: [number, number][] = [
   [-1, 1],
 ];
 
-function checkInDirection(x: number, y: number, deltaX: number, deltaY: number) {
+function checkInDirection(
+  x: number,
+  y: number,
+  deltaX: number,
+  deltaY: number,
+) {
   const lastX = x + deltaX * 3;
   const lastY = y + deltaY * 3;
   if (lastX > xMax || lastX < 0) return false;
@@ -40,7 +45,7 @@ function countWordsFormed(x: number, y: number) {
   let internalCount = 0;
 
   for (let i = 0; i < directions.length; i++) {
-    let [deltaX, deltaY] = directions[i];
+    const [deltaX, deltaY] = directions[i];
     if (checkInDirection(x, y, deltaX, deltaY)) internalCount++;
   }
   return internalCount;
@@ -61,13 +66,22 @@ console.log("Part A: ", countA);
 // Part B
 
 function checkAisCross(x: number, y: number) {
-  if (grid[y][x] !== "A" || x < 1 || x > xMax - 1 || y < 1 || y > yMax - 1) return false;
+  if (grid[y][x] !== "A" || x < 1 || x > xMax - 1 || y < 1 || y > yMax - 1) {
+    return false;
+  }
 
-  const diagonals = [grid[y - 1][x - 1], grid[y - 1][x + 1], grid[y + 1][x - 1], grid[y + 1][x + 1]];
+  const diagonals = [
+    grid[y - 1][x - 1],
+    grid[y - 1][x + 1],
+    grid[y + 1][x - 1],
+    grid[y + 1][x + 1],
+  ];
 
   if (!diagonals.every((char) => ["S", "M"].includes(char))) return false;
 
-  if (diagonals[0] === diagonals[3] || diagonals[1] === diagonals[2]) return false;
+  if (diagonals[0] === diagonals[3] || diagonals[1] === diagonals[2]) {
+    return false;
+  }
 
   return true;
 }
