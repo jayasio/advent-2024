@@ -42,12 +42,12 @@ function getVecFromGrid(value: string, grid: string[][]): Vector {
   return [x, y];
 }
 
-let initPos: Vector = getVecFromGrid("^", grid);
+const initPos: Vector = getVecFromGrid("^", grid);
 
 function getWalkingMap(grid: string[][]): string[][] {
   let guardPos = initPos;
   let direction = 0;
-  let workingGrid = grid.map((row) => [...row]);
+  const workingGrid = grid.map((row) => [...row]);
 
   outer: while (checkWithinBounds(guardPos)) {
     const [x, y] = guardPos;
@@ -83,8 +83,8 @@ console.log(
 function checkIfLoops(grid: string[][]): boolean {
   let guardPos = initPos;
   let direction = 0;
-  let workingGrid: string[][] = grid.map((row) => [...row]);
-  let countGrid = grid.map((row) => row.map((v) => 0));
+  const workingGrid: string[][] = grid.map((row) => [...row]);
+  const countGrid = grid.map((row) => row.map((_) => 0));
 
   outer: while (checkWithinBounds(guardPos)) {
     const [x, y] = guardPos;
@@ -126,7 +126,9 @@ function getStrategicPoints(grid: string[][]) {
 }
 
 function getUnique<T>(vals: T[]): T[] {
-  return [...new Set(vals.map((v) => JSON.stringify(v)))].map((str) => JSON.parse(str) as T);
+  return [...new Set(vals.map((v) => JSON.stringify(v)))].map((str) =>
+    JSON.parse(str) as T
+  );
 }
 
 console.log("Part B: ", getUnique(getStrategicPoints(grid)).length);
