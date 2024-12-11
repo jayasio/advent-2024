@@ -24,3 +24,4 @@ Written in TypeScript and executed with Deno. To run it:
 | 8   | ⭐     | ⭐     |
 | 9   | ⭐     | ⭐     |
 | 10  | ⭐     | ⭐     |
+| 11  | ⭐     | ⭐     |
