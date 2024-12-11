@@ -19,7 +19,7 @@ Written in TypeScript and executed with Deno. To run it:
 | 3   | ⭐     | ⭐     |
 | 4   | ⭐     | ⭐     |
 | 5   | ⭐     | ⭐     |
-| 6   | ⭐     |        |
+| 6   | ⭐     | ⭐     |
 | 7   | ⭐     | ⭐     |
 | 8   | ⭐     | ⭐     |
 | 9   | ⭐     | ⭐     |
